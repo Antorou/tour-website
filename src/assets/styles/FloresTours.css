@@ -1,0 +1,30 @@
+.main-container-tours {
+  display: flex;
+  margin: 0 200px;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+  padding: 20px;
+  margin: 20px 20px;
+}
+.text-container {
+  flex: 2;
+  margin: 0px 20px;
+}
+.category-container {
+  flex: 1;
+  padding: 20px;
+  margin: 20px 20px;
+  height: 100%;
+  background-color: bisque;
+  border-radius: 50px;
+}
+.category-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+.category-container ul li {
+  margin-bottom: 10px;
+}
