@@ -7,9 +7,9 @@ import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <div className="main-container">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
-      <main>
+      <main className="flex-grow container mx-auto px-4 py-8">
         <Outlet />
       </main>
       <Footer />
