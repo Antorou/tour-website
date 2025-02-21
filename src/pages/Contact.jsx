@@ -9,7 +9,7 @@ const Contact = () => {
           <h3 className="italic text-lg text-gray-600">Si vous souhaitez discutez</h3>
           <h2 className="text-2xl font-bold mb-4">NOS COORDONNÉES</h2>
           <p className="text-gray-700 mb-4">
-            If you have any questions and want to make a reservation, please get in touch with us via contact details listed below or fill in the form on the right.
+          Si vous avez des questions ou souhaitez réserver, n'hésitez pas à nous contacter via les coordonnées ci-dessous ou à remplir le formulaire sur la droite.
           </p>
           <div className="space-y-3">
             <p className="flex items-center gap-3 text-gray-800">

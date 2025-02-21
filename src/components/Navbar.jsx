@@ -39,26 +39,6 @@ const Navbar = () => {
                 <Link to="/" className="text-lg hover:text-blue-400 transition duration-300">Home</Link>
               </li>
 
-              {/* Dropdown Menu */}
-              <li className="relative group">
-                <Link to="/tours" className="text-lg hover:text-blue-400 transition duration-600">
-                  Tours
-                </Link>
-                <ul className="absolute left-0 hidden mt-2 space-y-2 bg-white text-black shadow-lg group-hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-600 rounded-lg py-2 w-48">
-                  <li><Link to="/tours/bali" className="block px-4 py-2 text-lg hover:bg-blue-100">Bali Tours</Link></li>
-                  <li><Link to="/tours/borneo" className="block px-4 py-2 text-lg hover:bg-blue-100">Borneo Tours</Link></li>
-                  <li><Link to="/tours/flores" className="block px-4 py-2 text-lg hover:bg-blue-100">Flores Tours</Link></li>
-                  <li><Link to="/tours/java" className="block px-4 py-2 text-lg hover:bg-blue-100">Java Tours</Link></li>
-                  <li><Link to="/tours/komodo" className="block px-4 py-2 text-lg hover:bg-blue-100">Komodo Tours</Link></li>
-                  <li><Link to="/tours/lombok" className="block px-4 py-2 text-lg hover:bg-blue-100">Lombok Tours</Link></li>
-                  <li><Link to="/tours/maluku" className="block px-4 py-2 text-lg hover:bg-blue-100">Maluku Ternate Tours</Link></li>
-                  <li><Link to="/tours/papua" className="block px-4 py-2 text-lg hover:bg-blue-100">Papua Tours</Link></li>
-                  <li><Link to="/tours/sulawesi" className="block px-4 py-2 text-lg hover:bg-blue-100">Sulawesi Tours</Link></li>
-                  <li><Link to="/tours/sumatera" className="block px-4 py-2 text-lg hover:bg-blue-100">Sumatera Tours</Link></li>
-                  <li><Link to="/tours/sumba" className="block px-4 py-2 text-lg hover:bg-blue-100">Sumba Tours</Link></li>
-                </ul>
-              </li>
-
               <li>
                 <Link to="/about" className="text-lg hover:text-blue-400 transition duration-300">A propos de nous</Link>
               </li>
@@ -77,24 +57,6 @@ const Navbar = () => {
           <ul className="space-y-4">
             <li>
               <Link to="/" className="text-lg hover:text-blue-400 transition duration-300">Home</Link>
-            </li>
-
-            {/* Dropdown Menu */}
-            <li className="relative group">
-              <Link to="/tours" className="text-lg hover:text-blue-400 transition duration-300">Tours</Link>
-              <ul className="absolute left-0 hidden mt-2 space-y-2 bg-white text-black shadow-lg group-hover:block rounded-lg py-2 w-48">
-                <li><Link to="/tours/bali" className="block px-4 py-2 text-lg hover:bg-blue-100">Bali Tours</Link></li>
-                <li><Link to="/tours/borneo" className="block px-4 py-2 text-lg hover:bg-blue-100">Borneo Tours</Link></li>
-                <li><Link to="/tours/flores" className="block px-4 py-2 text-lg hover:bg-blue-100">Flores Tours</Link></li>
-                <li><Link to="/tours/java" className="block px-4 py-2 text-lg hover:bg-blue-100">Java Tours</Link></li>
-                <li><Link to="/tours/komodo" className="block px-4 py-2 text-lg hover:bg-blue-100">Komodo Tours</Link></li>
-                <li><Link to="/tours/lombok" className="block px-4 py-2 text-lg hover:bg-blue-100">Lombok Tours</Link></li>
-                <li><Link to="/tours/maluku" className="block px-4 py-2 text-lg hover:bg-blue-100">Maluku Ternate Tours</Link></li>
-                <li><Link to="/tours/papua" className="block px-4 py-2 text-lg hover:bg-blue-100">Papua Tours</Link></li>
-                <li><Link to="/tours/sulawesi" className="block px-4 py-2 text-lg hover:bg-blue-100">Sulawesi Tours</Link></li>
-                <li><Link to="/tours/sumatera" className="block px-4 py-2 text-lg hover:bg-blue-100">Sumatera Tours</Link></li>
-                <li><Link to="/tours/sumba" className="block px-4 py-2 text-lg hover:bg-blue-100">Sumba Tours</Link></li>
-              </ul>
             </li>
 
             <li>
