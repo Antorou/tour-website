@@ -1,0 +1,21 @@
+{
+    "name": "Franky's Dev Container",
+    "build": { "dockerfile": "../Dockerfile", "target": "dev"},
+	"runArgs": [
+        "--env-file", "${localWorkspaceFolder}/.env.development",
+        "--network=host",
+		"--privileged",
+        "-v", "${localWorkspaceFolder}:/usr/src/web"
+		// "-v ${localEnv:HOME}/.docker/run/docker.sock:/var/run/docker.sock"
+	],
+    "shutdownAction": "none",
+    // "overrideCommand": true,
+    "workspaceFolder": "/usr/src/web",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Vue.volar"
+            ]
+        }
+    }
+}

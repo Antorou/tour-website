@@ -5,331 +5,504 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import image1 from '../assets/images/flores.png';
 import image2 from '../assets/images/komodoexplore.jpg';
 import image3 from '../assets/images/komodooneday.jpg';
+import { useLanguage } from '../i18n/LanguageContext';
+
+
 
 // details : startTime, endTime, duration, startLocation, wear, included, notIncluded, pickUpTime
 const TourDetails = ({ title, description, details, images }) => {
   const { tourId } = useParams();
+  const { t, language } = useLanguage();
+
+  const getTourDescription = (id) => {
+    switch(id) {
+      case 'bali-active-tour-8-days':
+        return t('message.tours.baliActiveTourFull');
+      case 'bali-cycling-adventure':
+        return t('message.tours.baliCyclingAdventureFull');
+      case 'bali-fast-boat-trips':
+        return t('message.tours.baliFastBoatTripsFull');
+      case 'flores-bali-tour':
+        return t('message.tours.floresBaliTourFull');
+      case 'bali-rafting-adventure':
+        return t('message.tours.baliRaftingAdventureFull');
+      case 'bali-surfing-adventure':
+        return t('message.tours.baliSurfingAdventureFull');
+      case 'bali-temple-tour':
+        return t('message.tours.baliTempleTourFull');
+      case 'bali-watersports':
+        return t('message.tours.baliWatersportsFull');
+      case 'central-bali-tour':
+        return t('message.tours.centralBaliTourFull');
+      case 'culture-heritage-tour':
+        return t('message.tours.cultureHeritageTourFull');
+      case 'exotic-bali-tour':
+        return t('message.tours.exoticBaliTourFull');
+      case 'gili-tepekong-dive-tour':
+        return t('message.tours.giliTepekongDiveTourFull');
+      case 'heavens-gate-tour-1-day':
+        return t('message.tours.heavensGateTour1DayFull');
+      case 'mount-batur-trekking-tour':
+        return t('message.tours.mountBaturTrekkingTourFull');
+      case 'nusapenida-island-snorkeling-tour-1-day':
+        return t('message.tours.nusapenidaIslandSnorkelingTour1DayFull');
+      case 'padang-bai-snorkeling-tour-1-day':
+        return t('message.tours.padangBaiSnorkelingTour1DayFull');
+      case 'tulamben-snorkeling-tour-1-day':
+        return t('message.tours.tulambenSnorkelingTour1DayFull');
+      case 'west-bali-snorkeling-tour-1-day':
+        return t('message.tours.westBaliSnorkelingTour1DayFull');
+        
+      default:
+        return description || '';
+    }
+  };
+
+  const getTourTitle = (id) => {
+    switch(id) {
+      case 'bali-active-tour-8-days':
+        return t('message.tours.baliActiveTour');
+      case 'bali-cycling-adventure':
+        return t('message.tours.baliCyclingAdventure');
+      case 'bali-fast-boat-trips':
+        return t('message.tours.baliFastBoatTrips');
+      case 'flores-bali-tour':
+        return t('message.tours.floresBaliTour');
+      case 'bali-rafting-adventure':
+        return t('message.tours.baliRaftingAdventure');
+      case 'bali-surfing-adventure':
+        return t('message.tours.baliSurfingAdventure');
+      case 'bali-temple-tour':
+        return t('message.tours.baliTempleTour');
+      case 'bali-watersports':
+        return t('message.tours.baliWatersports');
+      case 'central-bali-tour':
+        return t('message.tours.centralBaliTour');
+      case 'culture-heritage-tour':
+        return t('message.tours.cultureHeritageTour');
+      case 'exotic-bali-tour':
+        return t('message.tours.exoticBaliTour');
+      case 'gili-tepekong-dive-tour':
+        return t('message.tours.giliTepekongDiveTour');
+      case 'heavens-gate-tour-1-day':
+        return t('message.tours.heavensGateTour1Day');
+      case 'mount-batur-trekking-tour':
+        return t('message.tours.mountBaturTrekkingTour');
+      case 'nusapenida-island-snorkeling-tour-1-day':
+        return t('message.tours.nusapenidaIslandSnorkelingTour1Day');
+      case 'padang-bai-snorkeling-tour-1-day':
+        return t('message.tours.padangBaiSnorkelingTour1Day');
+      case 'tulamben-snorkeling-tour-1-day':
+        return t('message.tours.tulambenSnorkelingTour1Day');
+      case 'west-bali-snorkeling-tour-1-day':
+        return t('message.tours.westBaliSnorkelingTour1Day');
+        
+      default:
+        return title || 'Tour Details';
+    }
+  };
+
+  const getTourDetails = (id) => {
+    switch(id) {
+      case 'bali-active-tour-8-days':
+        return t('message.tourDetails.baliActiveTour');
+      case 'bali-cycling-adventure':
+        return t('message.tourDetails.baliCyclingAdventure');
+      case 'bali-fast-boat-trips':
+        return t('message.tourDetails.baliFastBoatTrips');
+      case 'flores-bali-tour':
+        return t('message.tourDetails.floresBaliTour');
+      case 'bali-rafting-adventure':
+        return t('message.tourDetails.baliRaftingAdventure');
+      case 'bali-surfing-adventure':
+        return t('message.tourDetails.baliSurfingAdventure');
+      case 'bali-temple-tour':
+        return t('message.tourDetails.baliTempleTour');
+      case 'bali-watersports':
+        return t('message.tourDetails.baliWatersports');
+      case 'central-bali-tour':
+        return t('message.tourDetails.centralBaliTour');
+      case 'culture-heritage-tour':
+        return t('message.tourDetails.cultureHeritageTour');
+      case 'exotic-bali-tour':
+        return t('message.tourDetails.exoticBaliTour');
+      case 'gili-tepekong-dive-tour':
+        return t('message.tourDetails.giliTepekongDiveTour');
+      case 'heavens-gate-tour-1-day':
+        return t('message.tourDetails.heavensGateTour1Day');
+      case 'mount-batur-trekking-tour':
+        return t('message.tourDetails.mountBaturTrekkingTour');
+      case 'nusapenida-island-snorkeling-tour-1-day':
+        return t('message.tourDetails.nusapenidaIslandSnorkelingTour1Day');
+      case 'padang-bai-snorkeling-tour-1-day':
+        return t('message.tourDetails.padangBaiSnorkelingTour1Day');
+      case 'tulamben-snorkeling-tour-1-day':
+        return t('message.tourDetails.tulambenSnorkelingTour1Day');
+      case 'west-bali-snorkeling-tour-1-day':
+        return t('message.tourDetails.westBaliSnorkelingTour1Day');
+        
+      default:
+        return {};
+    }
+  };
 
   const tourData = {   
     'bali-active-tour-8-days': {
-      title: 'Bali Active Tour 8 jours',
-      description: "Le Bali Active Tour de 8 jours est l'un des meilleurs circuits ou voyages pour découvrir Bali. Il emmène les voyageurs vers les lieux les plus recommandés de Bali. Ce voyage inclut des activités sportives telles que le rafting, le cyclisme, la randonnée, l'escalade de volcans, le snorkeling, le trekking, ainsi que la visite de temples et de cascades. Bien sûr, tous les voyageurs ne sont pas intéressés par toutes les activités mentionnées ci-dessus. C'est pourquoi nous sommes ouverts à d'autres alternatives. Alors, partagez avec nous votre rêve de vacances afin que nous puissions créer un itinéraire adapté pour vous.",
-      details: {
-        startLocation: "Bali",
-        startTime: "Veuillez arriver à 8h15 pour un départ à 8h30.",
-        endTime: "Environ 18h30.",
-        wear: "Vêtements de sport confortables, chaussures de randonnée, chapeau, veste et crème solaire.",
-        included: [
-          "Guide expérimenté",
-          "Tous les frais d'entrée",
-          "Rafting + Tour des dauphins",
-          "Trekking volcan + Guide de trekking",
-          "Déjeuner + eau potable",
-          "Transport en mini-car + Chauffeur",
-          "Snorkeling à Tulamben",
-          "Bateau + équipement de snorkeling à l'ouest de Bali"
-        ],
-        notIncluded: [
-          "Hébergement",
-          "Dîner"
-        ],
-        images: [
-          image1,
-          image2,
-          image3
-        ] 
-      },
-      itinerary: [
-        {
-          step: 1,
-          title: "Jour 1 : Rafting – Grotte de Goa Lawah – Candi Dasa (B/L/-)",
-          description: "Le premier jour, votre visite se dirige vers l'est. Vous serez pris en charge à votre hôtel le matin, puis transféré environ 2 heures vers la rivière Telaga Waja à Muncan-Est Bali. Telagawaja est longue de 17 km, ce qui en fait la plus longue rivière de Bali. Le rafting sur Telaga Waja est une expérience fantastique avec les meilleurs rapides en eaux vives et les plus difficiles de Bali. Pendant le rafting, vous serez émerveillé par les vues pittoresques des rizières, des champs verts et de la forêt tropicale de chaque côté de la rivière. Après le déjeuner, continuez vers la grotte de Goa Lawah pour voir des milliers de chauves-souris accrochées aux parois de la grotte. Ensuite, continuez vers Candi Dasa. Enregistrement à l'hôtel réservé là-bas."
-        },
-        {
-          step: 2,
-          title: "Jour 2 : Snorkeling à Tulamben – Palais de l'eau de Tita Gangga – Sidemen (B/L/-)",
-          description: "Le deuxième jour, votre visite commence à 08h30. Départ de votre hôtel après le petit-déjeuner, puis direction Tulamben pour faire du snorkeling. Explorez les fascinants récifs coralliens de l'épave américaine et découvrez la faune marine telle que le poisson-lune mola-mola, le requin-marteau, le requin-baleine, le perroquet à bosse, les requins de récif à pointe noire et les poissons coralliens colorés. Le déjeuner sera servi dans un restaurant local à proximité. Ensuite, visitez le palais de l'eau du dernier roi de Karangasem-est Bali. Puis, continuez vers Sidemen. Enregistrement à l'hôtel réservé à Tulamben."
-        },
-        {
-          step: 3,
-          title: "Jour 3 : Cyclisme à Sidemen – Temple de Besakih – Kintamani (B/L/-)",
-          description: "Pris en charge à l'hôtel après le petit-déjeuner. Votre voyage commence par une aventure à vélo à travers la région rurale de Sidemen. Cela prend deux heures sur la route pittoresque à travers les rizières, les champs verts et les villages. Retour à l'hôtel pour une douche. Après le déjeuner, direction Besakih pour visiter le plus grand temple de Bali. À votre arrivée à Besakih, mettez votre sarong, un vêtement traditionnel balinais. Il est nécessaire pour nous permettre d'entrer dans le temple sacré de Besakih. Le complexe du temple est immense, il faut donc du temps et des efforts pour l'explorer. Ce qui rend le temple spectaculaire, c'est la porte divisée de Pura Agung, le temple principal de Besakih. Il est conçu et créé par les mains des talentueux Balinais. Profitez de la vue sur le temple, tout en prenant une photo. Continuez vers le nord-ouest jusqu'à Kintamani. Enregistrement à l'hôtel réservé là-bas."
-        },
-        {
-          step: 4,
-          title: "Jour 4 : Randonnée au volcan Batur – Rizières de Tegalalang - Ubud (B/L/-)",
-          description: "Pris en charge à l'hôtel très tôt le matin à 03h30. Descendez environ 25 minutes dans le cratère massif du volcan Batur jusqu'à arriver à la base du mont Batur. Rencontrez votre guide de randonnée assigné là-bas, puis profitez d'une randonnée de deux heures pour vivre une expérience de lever de soleil spectaculaire au sommet du mont Batur (1717 M). Retour à l'hôtel pour une douche. Départ de l'hôtel et visite de la production traditionnelle de café à Kayuambua. Vous avez l'opportunité d'essayer le Kopi Luwak, un café étrange fabriqué à partir des excréments de la civette. Ensuite, continuez vers Ubud avec un arrêt à Tegalalang pour visiter les plus belles rizières du centre de Bali, en même temps vous pouvez profiter d'une activité de balançoire pour le plaisir, qui a lieu dans les rizières (à vos frais). Dans l'après-midi, enregistrement à l'hôtel réservé à Ubud."
-        },
-        {
-          step: 5,
-          title: "Jour 5 : Promenade de Djampuhan – Cascade de Tegenungan – Forêt des singes d'Alas Kedaton - Jatiluwih (B/L/-)",
-          description: "Pris en charge à 08h00 et direction Djampuhan. Profitez d'une belle promenade sur un petit chemin à travers le paysage pittoresque sur la colline couverte de savane et les deux rivières de chaque côté de la colline. Après cela, visitez la cascade de Tegenungan à Kemenuh, au sud-est d'Ubud. Même si elle ne fait que 10 mètres de haut, la cascade est extrêmement charmante. Continuez vers l'ouest pour visiter la forêt des singes d'Alas Kedaton. Cette forêt tropicale de 12 hectares abrite plus de 2 000 macaques. Explorez la forêt et profitez de votre temps avec les singes mignons. Après cela, continuez vers Jatiluwih à travers le paysage pittoresque de la région rurale de Tabanan. Une heure plus tard, arrivez à Jatiluwih. Ensuite, vous avez l'opportunité de vous promener à travers les magnifiques rizières, le site du patrimoine traditionnel reconnu par l'UNESCO en 2012. Après cela, enregistrement à l'hôtel réservé à proximité."
-        },
-        {
-          step: 6,
-          title: "Jour 6 : Temple de l'eau du lac Bratan – Cascades de Sekumpul - Plage de Lovina (B/L/-)",
-          description: "Pris en charge à 09h00 et direction le nord vers le lac de montagne Bratan. Profitez des belles vues sur les rizières et les champs verts le long du chemin. Parfois, vous pouvez voir des arbres tropicaux tels que le caféier, le giroflier, le vanillier, le cacaoyer, le cannelier, et des plantes fruitières locales comme le papayer, le bananier, le mangoustan, le salak (fruits du serpent) et plus encore. À votre arrivée au lac Bratan, visitez le majestueux temple Ulun Danu situé au bord du lac Bratan. Ce temple est dédié à la déesse de l'eau Dewi Danu. Ce qui rend le temple si beau, c'est lorsque le niveau de l'eau du lac est élevé, que le temple semble flotter sur l'eau. Après cela, continuez vers le nord. Arrêtez-vous dans le village de Sekumpul pour visiter ses impressionnantes cascades. Les cascades sont assez éloignées du parking ; par conséquent, il faut un peu d'effort pour les atteindre. Des chaussures de randonnée et des sandales sont recommandées, en raison de la descente des escaliers raides et de la marche dans la rivière, même si le paysage est extrêmement charmant. Il y a 2 emplacements de cascades, mais pas trop éloignés l'un de l'autre. Après le déjeuner, continuez vers la plage de Lovina, Singaraja-nord Bali. Enregistrement à l'hôtel réservé à Lovina."
-        },
-        {
-          step: 7,
-          title: "Jour 7 : Dauphins - Snorkeling & Randonnée dans le parc national de l'ouest de Bali - Pemuteran (B/L/-)",
-          description: "Réveillez-vous tôt le matin à 05h00. Rencontrez votre guide assigné dans le hall de l'hôtel, puis marchez jusqu'à la plage. Un bateau en bois traditionnel vous emmènera voir les dauphins dans la mer du nord de Bali. Profitez de votre visite des dauphins pendant presque 2 heures. Retour à l'hôtel pour le petit-déjeuner et la douche. Départ de l'hôtel et direction Labuhan Lalang, parc national de l'ouest de Bali. Après presque 2 heures de route à travers le paysage côtier nord, arrivez enfin à Labuan Lalang, où vous prendrez un bateau en bois traditionnel pour la visite de snorkeling à l'île de Menjangan. Environ 30 minutes plus tard, vous arriverez à Menjangan. Soyez prêt à explorer le magnifique paysage de récifs coralliens en faisant du snorkeling dans les eaux entourant l'île de Menjangan. Il y a beaucoup de faune marine à voir, y compris l'hippocampe pygmée, la tortue de mer, le requin-baleine, le mola mola, les mérous, et plus encore. Retour à Labuan Lalang, puis direction Tegal Blunder, le point de départ pour la randonnée dans le parc national de l'ouest de Bali. Profitez de l'observation des oiseaux tout en randonnant sur le sentier de Tegal Blunder. C'est une promenade facile d'environ 2 heures. Après cela, continuez vers Pemuteran. Enregistrement à l'hôtel réservé là-bas."
-        },
-        {
-          step: 8,
-          title: "Jour 8 : Source chaude de Banjar – Rizières de Pupuan Antosari – Temple de Tanah Lot – Sud de Bali (B/L/-)",
-          description: "Pris en charge à l'hôtel à 09h00. Ensuite, direction l'est à travers le paysage côtier nord de Bali. Après presque 2 heures, arrivez à Banjar. Profitez de la baignade dans les sources chaudes là-bas. Après cela, continuez vers le sud. Visitez la plus grande statue de Bouddha à Pupuan, puis profitez du long voyage vers le sud avec quelques arrêts dans des endroits pittoresques. Dans l'après-midi, visitez le temple de l'eau de Tanah Lot, puis profitez d'un coucher de soleil spectaculaire là-bas. Enfin, retournez vers le sud et enregistrez-vous à votre hôtel réservé."
-        }
-      ]
+      title: getTourTitle('bali-active-tour-8-days'),
+      description: getTourDescription('bali-active-tour-8-days'),
+      details: getTourDetails('bali-active-tour-8-days'),
+      images: [image1, image2, image3]
     },
     'bali-cycling-adventure': {
-      title: "L'aventure à vélo à Bali",
-      description: " L'aventure à vélo à Bali vous emmène à travers les paysages ruraux du centre de l'île, offrant des vues imprenables sur les rizières, les villages authentiques et les champs verdoyants. Cette activité est idéale pour les voyageurs passionnés de sport et d'aventure en plein air. Elle permet non seulement de profiter de la beauté naturelle de Bali, mais aussi de découvrir la vie locale et les traditions des habitants des campagnes. La durée totale de cette balade à vélo est d'environ 8 à 9 heures, en fonction du lieu de séjour des participants. La partie cycliste en elle-même dure environ 3 heures et suit un itinéraire descendant, du volcan Kintamani jusqu'à Ubud, en traversant de petits villages, des rizières et des paysages luxuriants.",
-      details: {
-        startTime: "Please find the information at 'Pick Up Time' below.",
-        endTime: "The end time varies according to the location where the guests stay.",
-        wear: "Comfortable athletic clothing, sport shoes, hat, and sunscreen.",
-        included: [
-          "Experienced Guides",
-          "Transportation in a bus or mini coach",
-          "Mountain bicycles and helmed",
-          "Lunch"
-        ],
-        notIncluded: [
-          "Alcoholic drink",
-          "Guide gratuity"
-        ],
-        pickUpTime: {
-          "Nusa Dua": "07:00 am – 07:15 am",
-          "Kuta": "07:30 am – 07:45 am",
-          "Seminyak": "07:45 am – 08:00 am",
-          "Sanur": "08:10 am – 08:20 am",
-          "Ubud": "08:30 am – 09:20 am"
-        },
-        images: [
-          
-        ]
-      },
-      itinerary: [
-        {
-          step: 1,
-          title: "Picked Up from Your Hotel",
-          description: "The trip starts from your hotel. An assigned driver will come to meet you at your hotel lobby, then takes you in a comfortable mini coach for approximately 2 hours to Kintamani region."
-        },
-        {
-          step: 2,
-          title: "Simple Breakfast in Kintamani",
-          description: "Upon arrival in Kintamani, you will be welcomed by the breathtaking views of Batur volcano and the largest lake in Bali namely Batur lake. Your assigned guide comes to meet you and escort you to a restaurant for breakfast. After that, enjoy your downhill cycling along the scenic road from Kintamani to Ubud."
-        },
-        {
-          step: 3,
-          title: "Visit small villages, school, and rice-paddies",
-          description: "On the way to Ubud you have the opportunity to visit a small village. Learn about the life of the people and their culture. Also stop by at schools to communicate with school children. Find out what makes them enjoy the school there. At the rice-paddies, you can learn about the process of planting and harvesting rice."
-        },
-        {
-          step: 4,
-          title: "Lunch Time",
-          description: "At the finish point of your memorable cycling trip, you will be escorted to our local restaurant for lunch. While having lunch you can enjoy the serenity and see the scenic views around. After lunch, your assigned driver takes you back to the hotel."
-        }
-      ]
+      title: getTourTitle('bali-cycling-adventure'),
+      description: getTourDescription('bali-cycling-adventure'),
+      details: getTourDetails('bali-cycling-adventure'),
+      itinerary: getTourDetails('bali-cycling-adventure').itinerary || []
     }, 
     'bali-fast-boat-trips': {
-      title: "Bali Fast Boat Trips",
-      description: "Bali Fast Boat Trips provides the one way or return transfers from Bali to Gili-Gili Lombok, Nusa Lembongan and Nusa Penida Island. These fast boat transfers can include pick up and drop at your hotel in Bali. To see the most interesting places in Nusa Penida, we offer a private one-day sightseeing tour where you can visit the breathtaking sights of the Island. Not only sightseeing tour but also snorkeling tour will complete your trip to Nusa Penida. You will discover the fascinating coral reef landscape with plenty of marine animals. If you are a group of more than 10 people, you can charter a boat where you can enjoy the trip without another participant. There are many different boats that are ready for Bali Fast Boat Trips. It depends on your trip planning. Please make a reservation at least one day prior to your tour schedule. For the accommodation in Nusa Penida, Lembongan and Gili-Gili Islands, you can book it by yourself online easily. Even though we can help you to make a hotel reservation.",
-      details: {
-        startLocation: "Bali",
-        startTime: "Please arrive at least one hour before the departure.",
-        wear: "Comfortable athletic clothing, sport shoes, hat, and sunscreen.",
-        included: [
-          "Fast Boat",
-          "Transportation"
-        ],
-        notIncluded: [
-          "Travel Insurance",
-          "Guide gratuity"
-        ],
-        images: [
-          
-        ]
-      },
-      itinerary: [  
-        { 
-          step: 1,
-            title: "Day 1: Departure",
-            description: "Ornare proin neque tempus cubilia cubilia blandit netus. Maecenas massa. Fermentum. Pretium vitae tempus sem enim enim. Tempus, leo, taciti augue aliquam hendrerit. Accumsan pharetra eros justo augue posuere felis elit cras montes fames. Vulputate dictumst egestas etiam dictum varius."
-          },
-          {
-            step: 2,
-            title: "Day 2",
-            description: "Tortor elementum egestas metus potenti habitasse tempus natoque senectus commodo rutrum quisque fermentum. Nisi velit primis dapibus odio consequat facilisi sollicitudin porta nulla tellus sagittis platea tempor sed parturient convallis consectetuer Vulputate curae; pharetra."
-          },
-          {
-            step: 3,
-            title: "Day 3",
-            description: "Fusce sagittis viverra lorem proin porttitor conubia risus vivamus. Mollis. Luctus curabitur porta nibh penatibus aliquet nec conubia magnis semper, sem feugiat scelerisque molestie. Nibh proin dapibus phasellus lacus. Facilisi."
-          },
-          {
-            step: 4,
-            title: "Day 4: Return",
-            description: ""
-        }
-      ]
+      title: getTourTitle('bali-fast-boat-trips'),
+      description: getTourDescription('bali-fast-boat-trips'),
+      details: getTourDetails('bali-fast-boat-trips'),
+      itinerary: getTourDetails('bali-fast-boat-trips').itinerary || []
     },
     'flores-bali-tour': {
-      title: "Bali Flores Tour",
-      description: "Bali Flores Tour is one of the best multi-day round trips that takes travelers to discover the authentic Bali and Flores. This multi-day trip specifically designed for those who love challenging activities such as hiking, trekking, mountaineering, submarine explore, and more. But the most importantly is to discover the authentic places of these two wonderful Islands. This tour is a combination of air, land and sea transportations. The concept of this trip is a private tour in English. Certainly, no other participants can join you in the tour without your permission. In case you don't speak English, you can request a special tour guide who can German, French or other languages.",
-      details: {
-        startLocation: "Bali",
-        startTime: "Please arrive by 8:15 AM for a prompt departure at 8:30 AM.",
-        endTime: "Approximately 6:30 PM.",
-        wear: "Comfortable athletic clothing, hiking boots, hat, jacket and sunscreen.",
-        included: [
-          "Tour guide",
-          "Mineral Water",
-          "Meals as noted in the itinerary",
-          "Transportation in mini-coach"
-        ],
-        notIncluded: [
-          "Flights",
-          "Instructor gratuity"
-        ],
-        images: [
-          // Add image imports or URLs here
-        ]
-      },
-      itinerary: [
-        // Add itinerary details here
-      ]
+      title: getTourTitle('flores-bali-tour'),
+      description: getTourDescription('flores-bali-tour'),
+      details: getTourDetails('flores-bali-tour'),
+      itinerary: getTourDetails('flores-bali-tour').itinerary || []
     },
     'bali-rafting-adventure': {
-      title: "Bali Rafting Adventure",
-      description: "Le rafting à Bali est l'une des aventures les plus excitantes qui rendra vos vacances encore plus fun et inoubliables. Venez vivre une expérience unique en compagnie de votre partenaire, votre famille ou vos amis et profitez d'une descente en rafting sensationnelle. Notre équipe est là pour vous offrir un service de qualité, en veillant à votre sécurité et à votre satisfaction. Nos guides, experts du rafting sur la rivière Telaga Waja, possèdent une solide expérience. Alors, laissez-vous porter et profitez pleinement de l'aventure ! La rivière Telaga Waja est située dans le village de Muncan, dans le district de Karangasem, à l'est de Bali. Il s'agit de la plus longue rivière de l'île, s'écoulant à travers un paysage pittoresque depuis la base du mont Agung, le plus haut volcan de Bali (3 142 m), jusqu'à la mer. Le parcours de rafting sur la Telaga Waja s'étend sur 17 km, depuis Muncan jusqu'au point d'arrivée à Selat. Il offre les meilleurs rapides en eaux vives et constitue l'expérience de rafting la plus exaltante de Bali, avec des paysages spectaculaires comprenant des rizières en terrasses, des champs verdoyants et une forêt tropicale luxuriante de chaque côté de la rivière." ,
-      details: {
-        startLocation: "Bali",
-        startTime: "Merci d'arriver à 8h15 pour un départ ponctuel à 8h30.",
-        endTime: "Vers 18h30.",
-        wear: "Vêtements confortables, des chaussures de marche, un chapeau ainsi qu'une crème solaire.",
-        included: [
-          "Guide expérimenté",
-          "Repas",
-          "Eau potable",
-          "Transport en minibus",
-        ],
-        notIncluded: [
-          "Assurance voyage",
-          "Pourboire du guide"
-        ],
-        images: [
-          // Add image imports or URLs here
-        ]
-      },
-      itinerary: [
-        // Add itinerary details here
-      ]
-    } 
+      title: getTourTitle('bali-rafting-adventure'),
+      description: getTourDescription('bali-rafting-adventure'),
+      details: getTourDetails('bali-rafting-adventure'),
+      itinerary: getTourDetails('bali-rafting-adventure').itinerary || []
+    },
+    'bali-surfing-adventure': {
+      title: getTourTitle('bali-surfing-adventure'),
+      description: getTourDescription('bali-surfing-adventure'),
+      details: getTourDetails('bali-surfing-adventure'),
+      itinerary: getTourDetails('bali-surfing-adventure').itinerary || []
+    },
+    'bali-temple-tour': {
+      title: getTourTitle('bali-temple-tour'),
+      description: getTourDescription('bali-temple-tour'),
+      details: getTourDetails('bali-temple-tour'),
+      itinerary: getTourDetails('bali-temple-tour').itinerary || []
+    },
+    'bali-watersports': {
+      title: getTourTitle('bali-watersports'),
+      description: getTourDescription('bali-watersports'),
+      details: getTourDetails('bali-watersports'),
+      itinerary: getTourDetails('bali-watersports').itinerary || []
+    },
+    'central-bali-tour': {
+      title: getTourTitle('central-bali-tour'),
+      description: getTourDescription('central-bali-tour'),
+      details: getTourDetails('central-bali-tour'),
+      itinerary: getTourDetails('central-bali-tour').itinerary || []
+    },
+    'culture-heritage-tour': {
+      title: getTourTitle('culture-heritage-tour'),
+      description: getTourDescription('culture-heritage-tour'),
+      details: getTourDetails('culture-heritage-tour'),
+      itinerary: getTourDetails('culture-heritage-tour').itinerary || []
+    },
+    'exotic-bali-tour': {
+      title: getTourTitle('exotic-bali-tour'),
+      description: getTourDescription('exotic-bali-tour'),
+      details: getTourDetails('exotic-bali-tour'),
+      itinerary: getTourDetails('exotic-bali-tour').itinerary || []
+    },
+    'gili-tepekong-dive-tour': {
+      title: getTourTitle('gili-tepekong-dive-tour'),
+      description: getTourDescription('gili-tepekong-dive-tour'),
+      details: getTourDetails('gili-tepekong-dive-tour'),
+      itinerary: getTourDetails('gili-tepekong-dive-tour').itinerary || []
+    },
+    'heavens-gate-tour-1-day': {
+      title: getTourTitle('heavens-gate-tour-1-day'),
+      description: getTourDescription('heavens-gate-tour-1-day'),
+      details: getTourDetails('heavens-gate-tour-1-day'),
+      itinerary: getTourDetails('heavens-gate-tour-1-day').itinerary || []
+    },
+    'mount-batur-trekking-tour': {
+      title: getTourTitle('mount-batur-trekking-tour'),
+      description: getTourDescription('mount-batur-trekking-tour'),
+      details: getTourDetails('mount-batur-trekking-tour'),
+      itinerary: getTourDetails('mount-batur-trekking-tour').itinerary || []
+    },
+    'nusapenida-island-snorkeling-tour-1-day': {
+      title: getTourTitle('nusapenida-island-snorkeling-tour-1-day'),
+      description: getTourDescription('nusapenida-island-snorkeling-tour-1-day'),
+      details: getTourDetails('nusapenida-island-snorkeling-tour-1-day'),
+      itinerary: getTourDetails('nusapenida-island-snorkeling-tour-1-day').itinerary || []
+    },
+    'padang-bai-snorkeling-tour-1-day': {
+      title: getTourTitle('padang-bai-snorkeling-tour-1-day'),
+      description: getTourDescription('padang-bai-snorkeling-tour-1-day'),
+      details: getTourDetails('padang-bai-snorkeling-tour-1-day'),
+      itinerary: getTourDetails('padang-bai-snorkeling-tour-1-day').itinerary || []
+    },
+    'tulamben-snorkeling-tour-1-day': {
+      title: getTourTitle('tulamben-snorkeling-tour-1-day'),
+      description: getTourDescription('tulamben-snorkeling-tour-1-day'),
+      details: getTourDetails('tulamben-snorkeling-tour-1-day'),
+      itinerary: getTourDetails('tulamben-snorkeling-tour-1-day').itinerary || []
+    },
+    'west-bali-snorkeling-tour-1-day': {
+      title: getTourTitle('west-bali-snorkeling-tour-1-day'),
+      description: getTourDescription('west-bali-snorkeling-tour-1-day'),
+      details: getTourDetails('west-bali-snorkeling-tour-1-day'),
+      itinerary: getTourDetails('west-bali-snorkeling-tour-1-day').itinerary || []
+    },
+
+  };
+  console.log(tourData, tourId, tourData[tourId]);
+  const currentTour = tourData[tourId] || {};
+  const tourDetails = currentTour.details || details || {};
+  const tourImages = currentTour.images || images || [image1, image2, image3];
+  const tourTitle = currentTour.title || title || 'Tour Details';
+  const tourDescription = currentTour.description || description || '';
+  const tourItinerary = currentTour.itinerary || tourDetails.itinerary || [];
+  const tourPricing = tourDetails.pricing || null;
+
+  // Helper function to render included/notIncluded arrays
+  const renderList = (items) => {
+    if (!items) return null;
+    
+    if (Array.isArray(items)) {
+      return (
+        <ul className="list-disc list-inside">
+          {items.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      );
+    }
+    
+    return <p>{items}</p>;
   };
 
+  // Helper function to render pickUpTime object
+  const renderPickUpTimes = (pickUpTimes) => {
+    if (!pickUpTimes) return null;
+    
+    if (typeof pickUpTimes === 'object' && !Array.isArray(pickUpTimes)) {
+      return (
+        <ul className="list-disc list-inside">
+          {Object.entries(pickUpTimes).map(([location, time], index) => (
+            <li key={index}>{location}: {time}</li>
+          ))}
+        </ul>
+      );
+    }
+    
+    return <p>{pickUpTimes}</p>;
+  };
+
+  // Helper function to render pricing table
+  const renderPricingTable = (pricing) => {
+    if (!pricing) return null;
+    
+    return (
+      <div className="pricing-table mt-6">
+        <h3 className="text-xl font-bold mb-4">{t('message.tourDetails.pricing')}</h3>
+        
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white border border-gray-300">
+            <thead>
+              <tr>
+                <th className="py-2 px-4 border-b">{t('message.tourDetails.participants')}</th>
+                {Object.keys(pricing.participants).map((range, index) => (
+                  <th key={index} className="py-2 px-4 border-b">{range}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="py-2 px-4 border-b font-semibold">{t('message.tourDetails.perPerson')}</td>
+                {Object.values(pricing.participants).map((price, index) => (
+                  <td key={index} className="py-2 px-4 border-b text-center">{price || '-'}</td>
+                ))}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="font-bold text-blue-600 mb-2">{t('message.tourDetails.priceIncludes')}</h4>
+            {renderList(pricing.includes)}
+          </div>
+          <div>
+            <h4 className="font-bold text-blue-600 mb-2">{t('message.tourDetails.priceExcludes')}</h4>
+            {renderList(pricing.excludes)}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="tour-details p-8 bg-white rounded-lg shadow-lg max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">{tourData[tourId].title}</h1>
-      <div className="text-gray-700 mb-6 text-center">
-        {tourData[tourId].description.split('. ').map((text, index) => (
-          <p key={index} className="mb-4" style={{ lineHeight: '1.4' }}>
-            {text.trim() + (text.endsWith('.') ? '' : '.')}
-          </p>
+    <div className="tour-details p-8 bg-white rounded-lg shadow-lg max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold text-center mb-6">{tourTitle}</h1>
+      
+      <Carousel showArrows={true} showThumbs={true} infiniteLoop={true} className="mb-8">
+        {tourImages.map((image, index) => (
+          <div key={index}>
+            <img src={image} alt={`Tour image ${index + 1}`} />
+          </div>
         ))}
+      </Carousel>
+      
+      <div className="mb-8">
+        <p className="text-lg mb-4">{tourDescription}</p>
+      </div>
+      
+      {tourPricing && renderPricingTable(tourPricing)}
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {tourDetails.startLocation && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.startLocation')}</h3>
+            <p>{tourDetails.startLocation}</p>
+          </div>
+        )}
+        
+        {tourDetails.startTime && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.startTime')}</h3>
+            <p>{tourDetails.startTime}</p>
+          </div>
+        )}
+        
+        {tourDetails.endTime && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.endTime')}</h3>
+            <p>{tourDetails.endTime}</p>
+          </div>
+        )}
+        
+        {tourDetails.duration && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.duration')}</h3>
+            <p>{tourDetails.duration}</p>
+          </div>
+        )}
+        
+        {tourDetails.wear && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.wear')}</h3>
+            <p>{tourDetails.wear}</p>
+          </div>
+        )}
+        
+        {tourDetails.included && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.included')}</h3>
+            {renderList(tourDetails.included)}
+          </div>
+        )}
+        
+        {tourDetails.notIncluded && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.notIncluded')}</h3>
+            {renderList(tourDetails.notIncluded)}
+          </div>
+        )}
+        
+        {tourDetails.pickUpTime && (
+          <div className="detail-item">
+            <h3 className="font-bold text-blue-600">{t('message.tourDetails.pickUpTime')}</h3>
+            {renderPickUpTimes(tourDetails.pickUpTime)}
+          </div>
+        )}
+        
       </div>
 
-      {tourData[tourId].details.images.length > 0 && (
+      {tourDetails.diveInfo && (
         <div className="mt-8">
-          <Carousel showThumbs={false} infiniteLoop useKeyboardArrows>
-            {tourData[tourId].details.images.map((imgSrc, index) => (
-              <div key={index}>
-                <img src={imgSrc} alt={`Image ${index + 1}`} className="w-full max-h-64 object-contain" />
-              </div>
-            ))}
-          </Carousel>
-        </div>
-      )}
-      
-      {tourData[tourId].details && (
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-2 text-blue-500">Details</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {tourData[tourId].details.startLocation && (
-              <div>
-                <h3 className="font-bold">Departure location</h3>
-                <p className="text-gray-600">{tourData[tourId].details.startLocation}</p>
+          <h2 className="text-2xl font-bold text-center mb-6">{t('message.tourDetails.diveInformation')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {tourDetails.diveInfo.visibility && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.visibility')}</h3>
+                <p>{tourDetails.diveInfo.visibility}</p>
               </div>
             )}
-            {tourData[tourId].details.startTime && (
-              <div>
-                <h3 className="font-bold">Start Time</h3>
-                <p className="text-gray-600">{tourData[tourId].details.startTime}</p>
+            
+            {tourDetails.diveInfo.difficulty && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.difficulty')}</h3>
+                <p>{tourDetails.diveInfo.difficulty}</p>
               </div>
             )}
-            {tourData[tourId].details.endTime && (
-              <div>
-                <h3 className="font-bold">End Time</h3>
-                <p className="text-gray-600">{tourData[tourId].details.endTime}</p>
+            
+            {tourDetails.diveInfo.diveTypes && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.diveTypes')}</h3>
+                <p>{tourDetails.diveInfo.diveTypes}</p>
               </div>
             )}
-            {tourData[tourId].details.wear && (
-              <div>
-                <h3 className="font-bold">Wear</h3>
-                <p className="text-gray-600">{tourData[tourId].details.wear}</p>
+            
+            {tourDetails.diveInfo.depth && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.depth')}</h3>
+                <p>{tourDetails.diveInfo.depth}</p>
               </div>
             )}
-            {tourData[tourId].details.included && tourData[tourId].details.included.length > 0 && (
-              <div>
-                <h3 className="font-bold">Included</h3>
-                <ul className="list-none list-inside text-gray-600">
-                  {tourData[tourId].details.included.map((item, index) => (
-                    <li key={index}>✔ {item}</li>
-                  ))}
-                </ul>
+            
+            {tourDetails.diveInfo.current && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.current')}</h3>
+                <p>{tourDetails.diveInfo.current}</p>
               </div>
             )}
-            {tourData[tourId].details.notIncluded && tourData[tourId].details.notIncluded.length > 0 && (
-              <div>
-                <h3 className="font-bold">Not Included</h3>
-                <ul className="list-none list-inside text-gray-600">
-                  {tourData[tourId].details.notIncluded.map((item, index) => (
-                    <li key={index}>✘ {item}</li>
-                  ))}
-                </ul>
+            
+            {tourDetails.diveInfo.waterTemperature && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.waterTemperature')}</h3>
+                <p>{tourDetails.diveInfo.waterTemperature}</p>
               </div>
             )}
-            {tourData[tourId].details.pickUpTime && (
-              <div>
-                <h3 className="font-bold">Pick Up Time</h3>
-                <ul className="list-disc list-inside text-gray-600" >
-                  {Object.entries(tourData[tourId].details.pickUpTime).map(([location, time], index) => (
-                    <li key={index} >{location}: {time}</li>
-                  ))}
-                </ul>
+            
+            {tourDetails.diveInfo.contour && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.contour')}</h3>
+                <p>{tourDetails.diveInfo.contour}</p>
+              </div>
+            )}
+            
+            {tourDetails.diveInfo.bigFish && (
+              <div className="detail-item">
+                <h3 className="font-bold text-blue-600">{t('message.tourDetails.marineLife')}</h3>
+                <p>{tourDetails.diveInfo.bigFish}</p>
               </div>
             )}
           </div>
         </div>
       )}
 
-      {tourData[tourId].itinerary && (
+      {tourItinerary && tourItinerary.length > 0 && (
         <div className="mt-8">
-          <h2 className="text-xl font-bold mb-4 text-blue-500  ">Itinerary</h2>
-          <ol className="list-decimal pl-5 space-y-4">
-            {tourData[tourId].itinerary.map((item, index) => (
-              <li key={index} className="list-none mb-4">
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-600" style={{ lineHeight: '1.4' }}>{item.description}</p>
-              </li>
+          <h2 className="text-2xl font-bold text-center mb-6">{t('message.tourDetails.itinerary')}</h2>
+          <div className="space-y-6">
+            {tourItinerary.map((item, index) => (
+              <div key={index} className="border-b pb-4 last:border-b-0">
+                <h3 className="font-bold text-lg text-blue-600 mb-2">{item.title}</h3>
+                <p>{item.description}</p>
+                {item.details && item.details.length > 0 && (
+                  <ul className="list-disc list-inside mt-2">
+                    {item.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="ml-4">{detail}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       )}
-
-  
     </div>
   );
 };
